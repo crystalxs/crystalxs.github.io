@@ -2,11 +2,8 @@
 layout: default
 ---
 
-[# About me]
-(./about-me.html).
+[# About me](./about-me.html).
 
-[# Project]
-(./project.html).
+[# Project](./project.html).
 
-# [Resume]
-(./resume.html).
+[# Resume](./resume.html).
