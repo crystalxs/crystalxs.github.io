@@ -8,27 +8,50 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<style>
-body,h1 {font-family: sans-serif}
-body, html {height: 100%}
-
-</style>
 <body>
 
-<div class="background-img">
-    <!-- <div>
-        <ul> -->
-            <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a>
-            <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
-        <!-- </ul>
-    </div> -->
-    <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
-
-    <div class="name-div">
-        <span class="name">CRYSTAL SUN</span>
+<div id="background-img">
+    <div id="nav-div">
+        <ul>
+            <li><a id="nav-botton" onclick="plusDivs(1)">ABOUT</a></li>
+            <li><a id="nav-botton" href="#project">PROJECTS</a></li>
+            <li><a id="nav-botton" href="https://crystalxs.gitbook.io/data-science-notes/">NOTES</a></li>
+        </ul>
     </div>
-    <footer class="contact">
-        <div>
+
+    <!-- <button class="w3-button w3-block w3-green w3-hide-large w3-hide-medium" onclick="document.getElementById('download').style.display='block'">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button> -->
+    <div class="mySlides w3-animate-opacity">
+        <div id="name-div">
+                <span id="name">CRYSTAL SUN</span>
+        </div>
+    </div>
+    <div class="mySlides w3-animate-opacity">
+        <div id="about-div">
+        <div id="about">
+            <h1 class="w3-xlarge">About Me</h1>
+            <hr class="w3-opacity">
+            <p>This is Crysta Sun.</p>
+            <p>I believe that data visualization can change the way people interact with and analyze the data by simplifying. </p>
+            <p>
+                Now I am graduating from Data Science Master program at University of San Francisco.
+                I also hold bachelor degrees in CS and Math at University of Minnesota and BS in Information Security at University of Electronic Science and Technology of China.
+                I have been training in the fields of data science, visualizations, computer science, and statistics. 
+            </p>
+            <p>
+                Currently, I am working on developing visualizations for the City of San Francisco using projected data of commuting times,
+                jobs, and population growth. I use Vue.js, D3.js, mapbox.js, and leaflet.js for map implementation and use SQL, PostgREST,
+                and Python to connect front-end with the back-end.
+            </p>
+            <p>
+                <button class="w3-button w3-block w3-green w3-round" type="submit" onclick="window.open('file.doc')">Interest? Download Resume</button>
+                <button class="w3-button w3-block w3-green w3-round" onclick="document.getElementById('download').style.display='block'">Interest? Download Resume</button>
+            </p>
+        </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contact">
             <ul class="icons">
             <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
             <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
