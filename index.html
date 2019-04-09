@@ -2,43 +2,269 @@
 <html>
 <title>Crystal Sun</title>
 <meta charset="UTF-8">
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="assets/js/echarts-preview.js"></script>
 <style>
 body,h1 {font-family: sans-serif}
 body, html {height: 100%}
 
 </style>
 <body>
+    <!-- Header -->
+    <!-- <header class="background-img"> -->
+    <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+        <!-- <div>
+            <ul> -->
+                <!-- <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a> -->
+                <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
+            <!-- </ul>
+        </div> -->
+        <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
 
-<div class="background-img">
-    <!-- <div>
-        <ul> -->
-            <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a>
-            <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
-        <!-- </ul>
-    </div> -->
-    <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
-
-    <div class="name-div">
-        <span class="name">CRYSTAL SUN</span>
-    </div>
-    <footer class="contact">
-        <div>
+        <div class="contact">
             <ul class="icons">
             <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
             <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
             <li><a href="https://www.linkedin.com/in/crystal-xin-sun/" target="_blank" class="fab fa-linkedin"></a></li>
-            <!-- <li>&copy; Xin Sun</li> -->
-        </ul>
+            </ul>
         </div>
-    </footer>
-</div>
 
+        <img class="w3-image" src="assets/img/BKG-cut2.jpg" alt="Me" width="1500" height="600">
+        <div class="name-div">
+            <h1 class="name">CRYSTAL SUN</h1>
+            <!-- <h5 class="w3-hide-large" style="white-space:nowrap">CRYSTAL SUN</h5> -->
+        </div>
+
+        <!-- Navbar (placed at the bottom of the header image) -->
+        <div class="w3-bar w3-black w3-display-bottommiddle w3-hide-small" style="bottom:-16px; z-index: 1">
+            <a href="#" class="w3-bar-item w3-button">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+            <a href="#project" class="w3-bar-item w3-button">PROJECTS</a>
+            <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
+        </div>
+    </header>
+
+
+    <!-- Navbar on small screens -->
+    <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium" style="z-index: 1">
+        <div class="w3-bar w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button">HOME</a>
+            <a href="#portfolio" class="w3-bar-item w3-button">ABOUT</a>
+            <a href="#contact" class="w3-bar-item w3-button">PROJECTS</a>
+            <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
+        </div>
+    </div>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="w3-sand w3-grayscale">
+
+        <!-- About Container -->
+        <div style="padding:30px" id="about">
+          <div class="w3-content">
+            <h5 class="w3-center w3-padding-64">
+                <span class="w3-tag w3-wide">ABOUT ME</span>
+                <br>
+                <button style="margin-top: 5px" class="w3-center w3-tag w3-wide">
+                    <a href="https://docs.google.com/document/d/1o3WpHLwYst187Rbzn-yyyhi6E1MijTmnvvVwpPUdBjE/edit?usp=sharing">
+                        Download Resume</a>
+                </button>
+            </h5>
+            <div class="w3-padding-large" style="border:2px solid black">
+                <p>I believe that data visualization can change the way people interact with and analyze 
+                    the data by simplifying.</p>
+                <p>Now I am graduating from Data Science Master program at University of San Francisco. 
+                    I also hold bachelor degrees in CS and Math at University of Minnesota and BS in Information 
+                    Security at University of Electronic Science and Technology of China. I have been training 
+                    in the fields of data science, visualizations, computer science, and statistics.</p>
+                <p>Currently, I am working on developing visualizations for the City of San Francisco using 
+                    projected data of commuting times, jobs, and population growth. I use Vue.js, D3.js, 
+                    mapbox.js, and leaflet.js for map implementation and use SQL, PostgREST, and Python to 
+                    connect front-end with the back-end.</p>
+            </div>
+            <!-- <div class="w3-panel w3-leftbar w3-light-grey">
+              <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+              <p>Chef, Coffeeist and Owner: Liam Brown</p>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- Project Container -->
+        <div style="padding:30px" id="project">
+            <div class="w3-row-padding w3-grayscale">    
+                <h5 class="w3-center w3-padding-64">
+                    <span class="w3-tag w3-wide">Visualization Projects</span>
+                </h5>
+                
+                <div style="float:left;width:47%">
+                    <div class="w3-padding-large" style="border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>ConnectSF Visualization</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/prospector">Github</a>
+                                <span>/</span>
+                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Vue.js</span>
+                            <span>#D3.js</span>
+                            <span>#Leaflet.js</span>
+                            <span>#Mapbox GL.js</span>
+                            <span>#PostgREST</span>
+                        </div>
+                    </div>
+
+                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
+                        <div id="container"></div>
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Echarts visualizations</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/small-data-visualization-samples">Github</a>
+                                <span>/</span>
+                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Echarts.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="float:right;width:47%">
+                    <div class="w3-padding-large" style="border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>NewsFeed</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Vue.js</span>
+                            <span>#Postgres</span>
+                        </div>
+                    </div>
+
+                    <div class="w3-padding-large" style="margin-top:20px;border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LianJia Competitor Map</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Echarts.js</span>
+                            <span>#PHP</span>
+                            <span>#MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-row-padding w3-grayscale">
+                <h5 class="w3-center w3-padding-64">
+                    <span class="w3-tag w3-wide">Machine Learning Projects</span>
+                </h5>
+                
+                <div style="float:left;width:47%">
+                    <div class="w3-padding-large" style="border:2px solid black">
+                        <img>
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LEANPLUM User Purchase Prediction</strong></h5>
+                        </header>
+                        <p> Predicting whether users will purchase in the next 7 and 14 days within a mobile app using machine learning models.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                        </div>
+                    </div>
+
+                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Facebook Human OR Robot Prediction</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/human-or-robot">Github</a>
+                            </div>
+                        </header>
+                        <p>Identifying if the online bids made by robots or human by using machine learning models.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                        </div>
+                    </div>
+
+                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Bankruptcy Rate Prediction</strong></h5>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="">Github</a>
+                            </div>
+                        </header>
+                        <p>Predicting Canadian bankruptcy rate by using time series models.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#R</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="float:right;width:47%">
+                    <div class="w3-padding-large" style="border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>NYC and SF Mapping</strong></h5>
+                            <p>Mapping New York City and San Francisco districts together by using yellow cab trip data.</p>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <span>#Python</span>
+                                <span>#Spark</span>
+                                <span>#MongoDB</span>
+                            </div>
+                        </header>
+                    </div>
+
+                    <div class="w3-padding-large" style="margin-top:20px; border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LianJia Employee Separation Rate Prediction</strong></h5>
+                            <p>Using logistic regression models to predict the separation rate of employees to help optimizing employee management.</p>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <span>#R</span>
+                                <span>#MySQL</span>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-row-padding w3-grayscale">
+                <h5 class="w3-center w3-padding-64">
+                    <span class="w3-tag w3-wide">ETL Pipeline Projects</span>
+                </h5>
+                <div style="float:left;width:47%">
+                    <div class="w3-padding-large" style="border:2px solid black">
+                        <header>
+                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Twitter API Sentiment Analysis</strong></h5>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                            <span>#AWS</span>
+                            <span>#Flask</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="float:right;width:47%">
+                    
+                </div>
+            </div>
+        </div>
+    <!-- End page content -->
+    </div>
 </body>
 </html>
 
@@ -62,3 +288,15 @@ body, html {height: 100%}
         x[slideIndex-1].style.display = "block";  
     }
 </script>
+
+
+
+
+<!-- <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  <img class="w3-image" src="/w3images/photographer.jpg" alt="Me" width="1500" height="600">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">JANE DOE</h1>
+    <h5 class="w3-hide-large" style="white-space:nowrap">JANE DOE</h5>
+    <h3 class="w3-hide-medium w3-hide-small">PHOTOGRAPHER</h3>
+  </div> 
+</header> -->
