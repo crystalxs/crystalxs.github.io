@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/CBDboundary.js"></script>
+    <script src="js/lianjia_map.js"></script>
+    <script src="js/deal_map_Com.js"></script>
+    <script src="js/deal_map_Ent.js"></script>
+    </script>
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="map" style="height: 100%; width: 100%; float: left"></div>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=15KM30F8HOjAciWWed1QRiOhw50LRcly&s=1"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script>
+        //数据初始化
+        var mapChart = echarts.init(document.getElementById('map'));
+        //var sidebarChart = echarts.init(document.getElementById('sidebar'));
+
+        var convertData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                res.push({
+                    name: data[i].name,
+                    value: [data[i].longitude, data[i].latitude, data[i].amount, data[i].edate, data[i].street]
+                });
+            }
+            return res;
+        };
+
+        var convertRedsData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                res.push({
+                    name: data[i].Reds,
+                    value: [data[i].longitude, data[i].latitude, data[i].deal_amt_monthly, data[i].CBD_price, data[i].deal_amt_all, data[i].deal_amt_lianjia, data[i].amt_all, data[i].amt_lianjia]
+                });
+            }
+            return res;
+        };
+
+        //定义初始化地图（包括大区边界）
+        var option = {
+            bmap: {
+                center: [120.400714, 36.077667],
+                zoom: 11.5,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": {
+                            "lightness": 20
+                        }
+                    }, {
+                        "featureType": "highway",
+                        "elementType": "geometry",
+                        "stylers": {
+                            "color": "#f49935"
+                        }
+                    }, {
+                        "featureType": "railway",
+                        "elementType": "all",
+                        "stylers": {
+                            "visibility": "off"
+                        }
+                    }, {
+                        "featureType": "local",
+                        "elementType": "labels",
+                        "stylers": {
+                            "visibility": "off"
+                        }
+                    }, {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#d1e5ff"
+                        }
+                    }, {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": {
+                            "visibility": "off"
+                        }
+                    }]
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                position: [10, 10]
+            },
+            legend: {
+                show: true,
+                orient: 'vertical',
+                y: 'bottom',
+                x: 'right',
+                data: ['链家店面-已开', '楼盘', '商业楼盘', '链家店面-待开', '链家店面-优化', '链家店面-已签约'],
+                selected: {
+                    '链家店面-已开': true,
+                    '楼盘': false,
+                    '商业楼盘': false,
+                    '链家店面-待开': true,
+                    '链家店面-优化': true,
+                    '连家店面-已签约': true
+                }
+
+            },
+            series: [{
+                    name: '楼盘',
+                    type: 'scatter',
+                    coordinateSystem: 'bmap',
+                    data: convertRedsData(redsDealData),
+                    symbolSize: function(value) {
+                        if (value[2] > 5) {
+                            return 4 * value[2];
+                        };
+                        return 20;
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        position: [10, 10],
+                        formatter: function(params) {
+                            var res = '楼盘名称：' + params.name +
+                                '<br/>月均市场成交量：' + params.value[2] +
+                                '<br/>商圈套均价：' + params.value[3] +
+                                '<br/>全市交易额：' + params.value[4] +
+                                '<br/>全市佣金额：' + params.value[6] +
+                                '<br/>链家交易额：' + params.value[5] +
+                                '<br/>链家佣金额：' + params.value[7];
+                            return res;
+                        }
+                    },
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            formatter: function(params) {
+                                return params.value[2];
+                            },
+                            position: 'inside',
+                            show: true
+                        },
+                        emphasis: {
+                            formatter: function(params) {
+                                return params.value[2];
+                            },
+                            position: 'inside',
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#c1232b'
+                        }
+                    }
+                }, {
+                    name: '商业楼盘',
+                    type: 'scatter',
+                    coordinateSystem: 'bmap',
+                    data: convertRedsData(redsDealData_Ent),
+                    symbolSize: function(value) {
+                        if (value[2] > 5) {
+                            return 4 * value[2];
+                        };
+                        return 20;
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        position: [10, 10],
+                        formatter: function(params) {
+                            var res = '楼盘名称：' + params.name +
+                                '<br/>月均市场成交量：' + params.value[2] +
+                                '<br/>商圈套均价：' + params.value[3];
+                            return res;
+                        }
+                    },
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            formatter: function(params) {
+                                return params.value[2];
+                            },
+                            position: 'inside',
+                            show: true
+                        },
+                        emphasis: {
+                            formatter: function(params) {
+                                return params.value[2];
+                            },
+                            position: 'inside',
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#fcce10'
+                        }
+                    }
+                }, {
+                    name: '链家店面-已开',
+                    type: 'scatter',
+                    symbol: 'image://css/logo.png',
+                    coordinateSystem: 'bmap',
+                    data: convertData(mapdata),
+                    symbolSize: 20,
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            opacity: 1
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        position: [10, 10],
+                        formatter: function(params) {
+                            var res = '店面名称：' + params.name +
+                                '<br/>店面人数：' + params.value[2];
+                            return res;
+                        }
+                    }
+                }, {
+                    name: '链家店面-优化',
+                    type: 'scatter',
+                    symbol: 'image://css/logo-red.png',
+                    coordinateSystem: 'bmap',
+                    data: convertData(mapdataSep),
+                    symbolSize: 20,
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            opacity: 1
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        position: [10, 10],
+                        formatter: function(params) {
+                            var res = '店面名称：' + params.name +
+                                '<br/>店面人数：' + params.value[2];
+                            return res;
+                        }
+                    }
+                }, {
+                    name: '连家店面-待开',
+                    type: 'scatter',
+                    symbol: 'image://css/logo-new.png',
+                    coordinateSystem: 'bmap',
+                    data: convertData(mapdataNew),
+                    symbolSize: 30,
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            opacity: 1
+                        }
+                    }
+                }, {
+                    name: '连家店面-已签约',
+                    type: 'scatter',
+                    symbol: 'image://css/logo-blue.png',
+                    coordinateSystem: 'bmap',
+                    data: convertData(mapdataWait),
+                    symbolSize: 30,
+                    showEffectOn: 'emphasis',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            opacity: 1
+                        }
+                    }
+                },
+
+                //商圈边界
+                {
+                    name: '保税区',
+                    data: baoshuiqu3,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '安子片区',
+                    data: anzipianqu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '黄岛区政府',
+                    data: huangdaoquzhengfu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '农业大学',
+                    data: nongyedaxue1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '天泰',
+                    data: tiantai,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '瑞阳路',
+                    data: ruiyanglu1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '金沙滩',
+                    data: jinshatan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '石老人',
+                    data: shilaoren1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '世纪公园',
+                    data: shijigongyuan31,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '城阳实验二小',
+                    data: chengyangshiyanerxiao1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '埠东',
+                    data: budong1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '镇江路',
+                    data: zhenjianglu11,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '中山路',
+                    data: zhongshanlu11,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '榉林公园',
+                    data: julingongyuan1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '枣儿山',
+                    data: zaoershan1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '闫家山',
+                    data: yanjiashan1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '下王埠',
+                    data: xiawangbu1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '世园会',
+                    data: shiyuanhui11,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '文登路',
+                    data: wendenglu1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '新贵都',
+                    data: xinguidu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '十梅庵',
+                    data: shimeian1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '湛山',
+                    data: zhanshan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '五四广场',
+                    data: wusiguangchang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '远洋广场',
+                    data: yuanyangguangchang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '辛家庄',
+                    data: xinjiazhuang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '八大湖',
+                    data: badahu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '大尧',
+                    data: dayao,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '雕塑园',
+                    data: diaosuyuan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '台东',
+                    data: taidong,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '错埠岭',
+                    data: cuobuling,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '浮山后',
+                    data: fushanhou,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '北村',
+                    data: beicun,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '海云庵',
+                    data: haiyunan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '河西',
+                    data: hexichengqu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '理工大学',
+                    data: ligongdaxue,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '奥帆中心',
+                    data: aofanzhongxin,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '田家花园',
+                    data: tianjiahuayuan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '合肥路佳世客',
+                    data: hefeilujiashike,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '崂山CBD',
+                    data: laoshancbd,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '麦岛',
+                    data: maidao,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '绿城',
+                    data: lvcheng,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '汽车东站',
+                    data: qichedongzhan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '李沧万达',
+                    data: licangwanda,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '福州北路',
+                    data: fuzhoubeilu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '同安路',
+                    data: tonganlu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '西姜',
+                    data: xijiang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '书院路',
+                    data: shuyuanlu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '新都心',
+                    data: xindouxin,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '东李',
+                    data: dongli1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '中央商务区',
+                    data: zhongyangshangwuqu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '八大关',
+                    data: badaguan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '北仲',
+                    data: beizhong,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '啤酒街',
+                    data: pijiujie,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '四方实验小区',
+                    data: sifangshiyanxiaoqu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '团岛',
+                    data: tuandao,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '大学路',
+                    data: daxuelu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '大港小港',
+                    data: dagangxiaogang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '天山银海',
+                    data: tianshanyinhai,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '李村公园',
+                    data: licungongyuan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '河南',
+                    data: henan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '海泊河',
+                    data: haibohe,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '湖岛',
+                    data: hudao,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '火车站',
+                    data: huochezhan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '西镇',
+                    data: xizhen,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '西韩',
+                    data: xihan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '北岭',
+                    data: beiling,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '颐中体育场',
+                    data: yizhongtiyuchang,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '水清沟',
+                    data: shuiqinggou,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '大沙路',
+                    data: dashalu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '薛家岛',
+                    data: xuejiadao,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '唐岛湾',
+                    data: tangdaowan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '家佳源',
+                    data: jiajiayuan,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '香江路',
+                    data: xiangjianglu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '石油大学',
+                    data: shiyoudaxue,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '积米崖',
+                    data: jimiya,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '东方影都',
+                    data: dongfangyingdu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '辛安',
+                    data: xinan1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '科技大学',
+                    data: kejidaxue,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '闽江路',
+                    data: minjianglu,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '太阳城',
+                    data: taiyangcheng1,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '老鸦岭',
+                    data: laoyaling,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                }, {
+                    name: '即墨中心',
+                    data: jimoCenter,
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    polyline: true,
+                    lineStyle: {
+                        normal: {
+                            color: '#00824c',
+                            width: 2.5
+                        }
+                    }
+                },
+            ]
+        };
+
+        //绘制地图
+        mapChart.setOption(option);
+    </script>
+</body>
+
+</html>

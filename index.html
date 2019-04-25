@@ -5,80 +5,60 @@
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-<script type="text/javascript" src="assets/js/echarts-preview.js"></script>
-<style>
-body,h1 {font-family: sans-serif}
-body, html {height: 100%}
 
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 <body>
     <!-- Header -->
     <!-- <header class="background-img"> -->
     <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-        <!-- <div>
-            <ul> -->
-                <!-- <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a> -->
-                <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
-            <!-- </ul>
-        </div> -->
-        <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
-
-        <div class="contact">
+        <div class="contact-header">
             <ul class="icons">
             <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
             <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/crystal-xin-sun/" target="_blank" class="fab fa-linkedin"></a></li>
+            <li><a href="https://www.linkedin.com/in/crystal-xin-sun/"
+                target="_blank" class="fab fa-linkedin"></a></li>
             </ul>
         </div>
 
         <img class="w3-image" src="assets/img/BKG-cut2.jpg" alt="Me" width="1500" height="600">
         <div class="name-div">
-            <h1 class="name">CRYSTAL SUN</h1>
+            <h1 class="name">Crystal Sun</h1>
             <!-- <h5 class="w3-hide-large" style="white-space:nowrap">CRYSTAL SUN</h5> -->
         </div>
 
         <!-- Navbar (placed at the bottom of the header image) -->
-        <div class="w3-bar w3-black w3-display-bottommiddle w3-hide-small" style="bottom:-16px; z-index: 1">
+        <div class="navbar">
             <a href="#" class="w3-bar-item w3-button">HOME</a>
             <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-            <a href="#project" class="w3-bar-item w3-button">PROJECTS</a>
+            <a href="#project" class="w3-bar-item w3-button">WEB PROJECTS</a>
+            <a href="#project" class="w3-bar-item w3-button">MODELING PROJECTS</a>
+            <a href="#project" class="w3-bar-item w3-button">PROGRAMMING PROJECTS</a>
+            <a href="#visual-project" class="w3-bar-item w3-button">SHOWCASES</a>
             <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium" style="z-index: 1">
+            <div class="w3-bar w3-light-grey">
+                <a href="#" class="w3-bar-item w3-button">HOME</a>
+                <a href="#portfolio" class="w3-bar-item w3-button">ABOUT</a>
+                <a href="#contact" class="w3-bar-item w3-button">PROJECTS</a>
+                <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
+            </div>
         </div>
     </header>
 
-
-    <!-- Navbar on small screens -->
-    <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium" style="z-index: 1">
-        <div class="w3-bar w3-light-grey">
-            <a href="#" class="w3-bar-item w3-button">HOME</a>
-            <a href="#portfolio" class="w3-bar-item w3-button">ABOUT</a>
-            <a href="#contact" class="w3-bar-item w3-button">PROJECTS</a>
-            <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
-        </div>
-    </div>
-
     <!-- Add a background color and large text to the whole page -->
-    <div class="w3-sand w3-grayscale">
+    <div class="content">
 
         <!-- About Container -->
-        <div style="padding:30px" id="about">
-          <div class="w3-content">
-            <h5 class="w3-center w3-padding-64">
-                <span class="w3-tag w3-wide">ABOUT ME</span>
-                <br>
-                <button style="margin-top: 5px" class="w3-center w3-tag w3-wide">
-                    <a href="https://docs.google.com/document/d/1o3WpHLwYst187Rbzn-yyyhi6E1MijTmnvvVwpPUdBjE/edit?usp=sharing">
-                        Download Resume</a>
-                </button>
-            </h5>
-            <div class="w3-padding-large" style="border:2px solid black">
+        <div class="session" id="about">
+            <div class="project-header"><h5>ABOUT ME</h5></div>
+            <div class="project">
                 <p>I believe that data visualization can change the way people interact with and analyze 
                     the data by simplifying.</p>
                 <p>Now I am graduating from Data Science Master program at University of San Francisco. 
@@ -90,31 +70,33 @@ body, html {height: 100%}
                     mapbox.js, and leaflet.js for map implementation and use SQL, PostgREST, and Python to 
                     connect front-end with the back-end.</p>
             </div>
-            <!-- <div class="w3-panel w3-leftbar w3-light-grey">
-              <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-              <p>Chef, Coffeeist and Owner: Liam Brown</p>
-            </div> -->
-          </div>
         </div>
 
         <!-- Project Container -->
-        <div style="padding:30px" id="project">
-            <div class="w3-row-padding w3-grayscale">    
-                <h5 class="w3-center w3-padding-64">
-                    <span class="w3-tag w3-wide">Visualization Projects</span>
-                </h5>
+        <div class="session" id="project">
+            <div class="subsession" id="visual-project">
+                <div class="subsession-header"><h5>Front-End / Visualization Projects</h5></div>
                 
-                <div style="float:left;width:47%">
-                    <div class="w3-padding-large" style="border:2px solid black">
+                <div class="left-div">
+                    <div class="project">
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>ConnectSF Visualization</strong></h5>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="https://github.com/crystalxs/prospector">Github</a>
+                            <div class="project-header"><h6>ConnectSF Visualization</h6></div>
+                            <div class="project-subheader">
+                                <a href="https://github.com/crystalxs/prospector" target="_blank">Github</a>
                                 <span>/</span>
-                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                                <a href="" target="_blank">Preview</a>
                             </div>
                         </header>
-                        <p></p>
+                        <p>ConnectSF define a 50-year vision of San Francisco’s future that represents
+                           our priorities, goals, and aspirations as a city within the larger Bay Area.</p>
+                        <p>In this project, I developed a city map for average number of jobs that a
+                           San Francisco household can access in a 45-minutes transit trip and a 30-minutes
+                           driving. Besides, I developed a chord map to showing the trips pattern within San
+                           Francisco Area.</p>
+                        <p>These visualizations will give the pulic and transportation system people full view
+                           of the city changing, opportunitis to interactive with and dig into with data. 
+                           Also they will guide plans for the City and its transportation system toward one
+                           collective goal.</p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
                             <span>#Vue.js</span>
                             <span>#D3.js</span>
@@ -124,48 +106,182 @@ body, html {height: 100%}
                         </div>
                     </div>
 
-                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
+                    <div class="project">
                         <div id="container"></div>
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Echarts visualizations</strong></h5>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="https://github.com/crystalxs/small-data-visualization-samples">Github</a>
-                                <span>/</span>
-                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                            <div class="project-header"><h6>Echarts Showcases</h6></div>
+                            <div class="project-subheader">
+                                <a href="https://github.com/crystalxs/small-data-visualization-samples" target="_blank">
+                                    Github</a> 
                             </div>
                         </header>
-                        <p></p>
+                        <p>Echarts is a declarative Framework for rapid construction of web-based visualization.
+                           I used it for some interactive, dynamic data visualization projects:</p>
+                           <ul class="in-content">
+                                <li>Lianjia&trade; Competitor Map
+                                    <span class="project-subheader">
+                                        <a href="" target="_blank">
+                                            [Preview]</a>
+                                    </span>
+                                </li>
+                                <li>Lianjia&trade; City Market Map
+                                    <span class="project-subheader">
+                                        <a href="showcase/echarts/market_map/deal_map.html" target="_blank">
+                                            [Preview]</a>
+                                    </span>
+                                </li>
+                                <li>Lianjia&trade; Store Scale Demo
+                                    <span class="project-subheader">
+                                        <a href="showcase/echarts/store_increasing/store-increasing.html"
+                                            target="_blank">[Preview]</a>
+                                    </span>
+                                </li>
+                                <li>Network Traffic Anomly & Compromise Detection
+                                    <span class="project-subheader">
+                                        <a href="showcase/echarts/network-traffic.html" target="_blank">
+                                            [Preview]</a>
+                                    </span>
+                                </li>
+                           </ul>
+                        <p>Check code and data description in
+                            <a href="https://github.com/crystalxs/small-data-visualization-samples" target="_blank">
+                                Github</a>.</p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Echarts.js</span>
+                            <span><a href="https://ecomfe.github.io/echarts-doc/public/en/index.html" target="_blank">
+                                #Echarts.js</a></span>
                         </div>
                     </div>
                 </div>
-                <div style="float:right;width:47%">
-                    <div class="w3-padding-large" style="border:2px solid black">
+                <div class="right-div">
+                    <div class="project">
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>NewsFeed</strong></h5>
+                            <div class="project-header"><h6>NewsPhi</h6></div>
+                            <div class="project-subheader">
+                                <a href="" target="_blank">
+                                    Github</a>
+                                <span>/</span>
+                                <a href="">Preview</a>
+                            </div>
+                        </header>
+                        <p><strong>An aide for contextual news consumption.</strong> We developed a
+                            newsfeed website, which combine traditional newsfeed together with our
+                            dashboard with critical analysis tools.</p>
+                        <p>In this project, I am responsible for implementing data pipeline, back-end
+                            database setting up, and developing front-end website. We implement a automic
+                            data pipeline from our streaming data source to Amazon S3, to critical analysis
+                            models, and output to Amazon RDS for PostgreSQL, and then PostgREST api to connect
+                            RDS with front-end website. For the website development, we choose to use Vue.js
+                            for website interactive parts, and flask for user log in and behavior tracking system.
+                        </p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Vue.js</span>
+                            <span>#RDS</span>
+                            <span>#PostgreSQL</span>
+                            <span>#PostgREST</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>Search Engine Implementation</h6></div>
                             <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
                                 <a href="">Preview</a>
                             </div>
                         </header>
-                        <p></p>
+                        <p>I implement a basic search engine, including displaying search results in
+                           a browser window and being able to navigate to documents. I implemented 3
+                           different search mechanism, linear search, hashtables via python built-in
+                           dict, implemented hashtables.</p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Vue.js</span>
-                            <span>#Postgres</span>
+                            <span>#Python</span>
+                            <span>#Flask</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsession">
+                <div class="project-header"><h5>Machine Learning Projects</h5></div>
+                
+                <div class="left-div">
+                    <div class="project">
+                        <!-- <img> -->
+                        <header>
+                            <div class="project-header"><h6>LEANPLUM&trade; User Purchase Prediction</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://docs.google.com/presentation/d/1Ljq1qo_ki0GbFNrXCrzGGy1UcrABRZGbZzUVz9yS7sM/edit?usp=sharing" target="_blank">
+                                    Report</a>
+                            </div>
+                        </header>
+                        <p>I predicted whether users will purchase in the next 7 and 14 days within a
+                            mobile app using the data provided by LEANPLUM&trade;.</p>
+                        <p>In this project, the data is over 50GB, thus I used multiprocessing in python
+                            to deal with it. In the prediction, I used Random Forest &trade; models.</p>
+                        <p>I achieved 97.5% AUC and 88% recall for prediciton, and be 4th on the kaggle
+                            private leaderboard.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
                         </div>
                     </div>
 
-                    <div class="w3-padding-large" style="margin-top:20px;border:2px solid black">
+                    <div class="project">
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LianJia Competitor Map</strong></h5>
+                            <div class="project-header"><h6>Facebook&trade; Human OR Robot Prediction</h6></div>
                             <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="https://github.com/crystalxs/prospector">Preview</a>
+                                <a href="https://github.com/crystalxs/human-or-robot" target="_blank">Github</a>
                             </div>
                         </header>
-                        <p></p>
+                        <p>Identifed if the online bids made by robots or human by using machine learning
+                            models.</p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Echarts.js</span>
-                            <span>#PHP</span>
+                            <span>#Python</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>Bankruptcy Rate Prediction</h6></div>                            
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/bankruptcy-rate-prediction" target="_blank">Github</a>
+                            </div>
+                        </header>
+                        <p>Predicted Canadian bankruptcy rate by using time series models.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#R</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-div">
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>NYC and SF Mapping</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/nyc-sf-mapping" target="_blank">Github</a>
+                            </div>
+                        </header>
+                        <p>Mappped New York City and San Francisco districts together by
+                            using yellow cab trip data with unsupervised models.</p>
+                        <p>The NYC yellow cab data is over 10GB, thus I set up MongoDB
+                            and used Spark for distributed querying and analyzing.
+                        </p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                            <span>#Spark</span>
+                            <span>#MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>LianJia&trade; Employee Separation Rate Prediction</h6></div>
+                        </header>
+                        <p>Using logistic regression models to predict the separation rate of employees to help
+                            optimizing employee management.</p>
+                        <p>Cleaned 10M+ historical data of Qingdao employees with different formats, established
+                            MySQL database, and created a pipeline to optimize data management and periodic
+                            prediction.</p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#R</span>
                             <span>#MySQL</span>
                         </div>
                     </div>
@@ -173,82 +289,29 @@ body, html {height: 100%}
             </div>
 
             <div class="w3-row-padding w3-grayscale">
-                <h5 class="w3-center w3-padding-64">
-                    <span class="w3-tag w3-wide">Machine Learning Projects</span>
-                </h5>
-                
-                <div style="float:left;width:47%">
-                    <div class="w3-padding-large" style="border:2px solid black">
-                        <img>
+                <div class="project-header"><h5>Programming / ETL Pipeline Projects</h5></div>
+                <div class="left-div">
+                    <div class="project">
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LEANPLUM User Purchase Prediction</strong></h5>
+                            <div class="project-header"><h6>Twitter Sentiment Analysis</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="">Preview</a>
+                            </div>
                         </header>
-                        <p> Predicting whether users will purchase in the next 7 and 14 days within a mobile app using machine learning models.</p>
+                        <p></p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
                             <span>#Python</span>
+                            <span>#AWS</span>
+                            <span>#Flask</span>
                         </div>
                     </div>
 
-                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
+                    <div class="project">
                         <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Facebook Human OR Robot Prediction</strong></h5>
+                            <div class="project-header"><h6>Recommending Articles</h6></div>
                             <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="https://github.com/crystalxs/human-or-robot">Github</a>
+                                <a href="">Preview</a>
                             </div>
-                        </header>
-                        <p>Identifying if the online bids made by robots or human by using machine learning models.</p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                        </div>
-                    </div>
-
-                    <div class="w3-padding-large" style="margin-top: 20px; border:2px solid black">
-                        <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Bankruptcy Rate Prediction</strong></h5>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Github</a>
-                            </div>
-                        </header>
-                        <p>Predicting Canadian bankruptcy rate by using time series models.</p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#R</span>
-                        </div>
-                    </div>
-                </div>
-                <div style="float:right;width:47%">
-                    <div class="w3-padding-large" style="border:2px solid black">
-                        <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>NYC and SF Mapping</strong></h5>
-                            <p>Mapping New York City and San Francisco districts together by using yellow cab trip data.</p>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <span>#Python</span>
-                                <span>#Spark</span>
-                                <span>#MongoDB</span>
-                            </div>
-                        </header>
-                    </div>
-
-                    <div class="w3-padding-large" style="margin-top:20px; border:2px solid black">
-                        <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>LianJia Employee Separation Rate Prediction</strong></h5>
-                            <p>Using logistic regression models to predict the separation rate of employees to help optimizing employee management.</p>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <span>#R</span>
-                                <span>#MySQL</span>
-                            </div>
-                        </header>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-row-padding w3-grayscale">
-                <h5 class="w3-center w3-padding-64">
-                    <span class="w3-tag w3-wide">ETL Pipeline Projects</span>
-                </h5>
-                <div style="float:left;width:47%">
-                    <div class="w3-padding-large" style="border:2px solid black">
-                        <header>
-                            <h5 class="w3-center" style="font-family: sans-serif"><strong>Twitter API Sentiment Analysis</strong></h5>
                         </header>
                         <p></p>
                         <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
@@ -258,17 +321,71 @@ body, html {height: 100%}
                         </div>
                     </div>
                 </div>
-                <div style="float:right;width:47%">
-                    
+                <div class="right-div">
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>Word Similarity and Relationships</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>Data Translation Pipeline</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="">Preview</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#Python</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <header>
+                            <div class="project-header"><h6>Network Package Sending Simulation</h6></div>
+                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                                <a href="https://github.com/crystalxs/network-package-send-simulation">Github</a>
+                            </div>
+                        </header>
+                        <p></p>
+                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <span>#C</span>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     <!-- End page content -->
+        <footer class="contact">
+            <ul class="icons">
+            <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
+            <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
+            <li><a href="https://www.linkedin.com/in/crystal-xin-sun/" target="_blank" class="fab fa-linkedin"></a></li>
+            </ul>
+        </footer>
     </div>
 </body>
 </html>
 
-<script>
+<!-- <div>
+            <ul> -->
+                <!-- <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a> -->
+                <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
+            <!-- </ul>
+        </div> -->
+        <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
+
+<!-- <script>
     // Slideshow
     var slideIndex = 1;
     showDivs(slideIndex);
@@ -287,7 +404,7 @@ body, html {height: 100%}
         }
         x[slideIndex-1].style.display = "block";  
     }
-</script>
+</script> -->
 
 
 
