@@ -15,63 +15,49 @@
     <!-- Header -->
     <!-- <header class="background-img"> -->
     <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-        <div class="contact-header">
-            <ul class="icons">
-            <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
-            <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/crystal-xin-sun/"
-                target="_blank" class="fab fa-linkedin"></a></li>
-            </ul>
+        <img class="w3-image" src="assets/img/BKG-cut2.jpg" alt="Me" width="1500" height="600">
+        <div class="mySlides w3-animate-opacity">
+            <div class="name-div">
+                <h1 class="name">Crystal Sun</h1>
+                <!-- <h5 class="w3-hide-large" style="white-space:nowrap">CRYSTAL SUN</h5> -->
+            </div>
         </div>
 
-        <img class="w3-image" src="assets/img/BKG-cut2.jpg" alt="Me" width="1500" height="600">
-        <div class="name-div">
-            <h1 class="name">Crystal Sun</h1>
-            <!-- <h5 class="w3-hide-large" style="white-space:nowrap">CRYSTAL SUN</h5> -->
+        <!-- About Container -->
+        <div class="mySlides w3-animate-opacity">
+            <div class="about-div">
+                    <p>I believe that data visualization can change the way people interact
+                            with and analyze the data by simplifying.
+                    <span class="project-subheader">
+                        <a href="https://drive.google.com/file/d/1NTs4AXMNORadDwcZqA4i6QFBHEHecn9D/view?usp=sharing" target="_blank">
+                            [Resume]</a>
+                    </span></p>
+                    <div class="w3-center" style="color: #999; font: 24px/1.5 Courier New">
+                        <ul class="icons">
+                        <li><a href="mailto: crystal9401@gmail.com" class="fas fa-envelope"></a></li>
+                        <li><a href="https://github.com/crystalxs" target="_blank" class="fab fa-github"></a></li>
+                        <li><a href="https://www.linkedin.com/in/crystal-xin-sun/"
+                            target="_blank" class="fab fa-linkedin"></a></li>
+                        </ul>
+                    </div>
+                <!-- <h5 class="w3-hide-large" style="white-space:nowrap">CRYSTAL SUN</h5> -->
+            </div>
         </div>
 
         <!-- Navbar (placed at the bottom of the header image) -->
         <div class="navbar">
             <a href="#" class="w3-bar-item w3-button">HOME</a>
-            <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+            <a class="w3-bar-item w3-button" onclick="plusDivs(1)">ABOUT</a>
             <a href="#project" class="w3-bar-item w3-button">WEB PROJECTS</a>
             <a href="#project" class="w3-bar-item w3-button">MODELING PROJECTS</a>
-            <a href="#project" class="w3-bar-item w3-button">PROGRAMMING PROJECTS</a>
-            <a href="#visual-project" class="w3-bar-item w3-button">SHOWCASES</a>
+            <!-- <a href="#project" class="w3-bar-item w3-button">PROGRAMMING PROJECTS</a> -->
+            <!-- <a href="#visual-project" class="w3-bar-item w3-button">SHOWCASES</a> -->
             <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
-        </div>
-
-        <!-- Navbar on small screens -->
-        <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium" style="z-index: 1">
-            <div class="w3-bar w3-light-grey">
-                <a href="#" class="w3-bar-item w3-button">HOME</a>
-                <a href="#portfolio" class="w3-bar-item w3-button">ABOUT</a>
-                <a href="#contact" class="w3-bar-item w3-button">PROJECTS</a>
-                <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
-            </div>
         </div>
     </header>
 
     <!-- Add a background color and large text to the whole page -->
     <div class="content">
-
-        <!-- About Container -->
-        <div class="session" id="about">
-            <div class="project-header"><h5>ABOUT ME</h5></div>
-            <div class="project">
-                <p>I believe that data visualization can change the way people interact with and analyze 
-                    the data by simplifying.</p>
-                <p>Now I am graduating from Data Science Master program at University of San Francisco. 
-                    I also hold bachelor degrees in CS and Math at University of Minnesota and BS in Information 
-                    Security at University of Electronic Science and Technology of China. I have been training 
-                    in the fields of data science, visualizations, computer science, and statistics.</p>
-                <p>Currently, I am working on developing visualizations for the City of San Francisco using 
-                    projected data of commuting times, jobs, and population growth. I use Vue.js, D3.js, 
-                    mapbox.js, and leaflet.js for map implementation and use SQL, PostgREST, and Python to 
-                    connect front-end with the back-end.</p>
-            </div>
-        </div>
-
         <!-- Project Container -->
         <div class="session" id="project">
             <div class="subsession" id="visual-project">
@@ -83,8 +69,6 @@
                             <div class="project-header"><h6>ConnectSF Visualization</h6></div>
                             <div class="project-subheader">
                                 <a href="https://github.com/crystalxs/prospector" target="_blank">Github</a>
-                                <span>/</span>
-                                <a href="http://prospector.surge.sh" target="_blank">Preview</a>
                             </div>
                         </header>
                         <p>ConnectSF define a 50-year vision of San Francisco’s future that represents
@@ -118,10 +102,10 @@
                         <div id="container"></div>
                         <header>
                             <div class="project-header"><h6>Echarts Showcases</h6></div>
-                            <div class="project-subheader">
+                            <!-- <div class="project-subheader">
                                 <a href="https://github.com/crystalxs/small-data-visualization-samples" target="_blank">
                                     Github</a> 
-                            </div>
+                            </div> -->
                         </header>
                         <p>Echarts is a declarative Framework for rapid construction of web-based visualization.
                            I used it for some interactive, dynamic data visualization projects:</p>
@@ -165,10 +149,10 @@
                         <header>
                             <div class="project-header"><h6>NewsPhi</h6></div>
                             <div class="project-subheader">
-                                <a href="" target="_blank">
+                                <!-- <a href="" target="_blank">
                                     Github</a>
-                                <span>/</span>
-                                <a href="">Preview</a>
+                                <span>/</span> -->
+                                <a href="http://ec2-35-167-124-232.us-west-2.compute.amazonaws.com:8080/">Preview</a>
                             </div>
                         </header>
                         <p><strong>An aide for contextual news consumption.</strong> We developed a
@@ -192,9 +176,9 @@
                     <div class="project">
                         <header>
                             <div class="project-header"><h6>Search Engine Implementation</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
+                            <!-- <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
                                 <a href="">Preview</a>
-                            </div>
+                            </div> -->
                         </header>
                         <p>I implement a basic search engine, including displaying search results in
                            a browser window and being able to navigate to documents. I implemented 3
@@ -295,83 +279,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="w3-row-padding w3-grayscale">
-                <div class="project-header"><h5>Programming / ETL Pipeline Projects</h5></div>
-                <div class="left-div">
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Twitter Sentiment Analysis</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Preview</a>
-                            </div>
-                        </header>
-                        <p></p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                            <span>#AWS</span>
-                            <span>#Flask</span>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Recommending Articles</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Preview</a>
-                            </div>
-                        </header>
-                        <p></p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                            <span>#AWS</span>
-                            <span>#Flask</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-div">
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Word Similarity and Relationships</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Preview</a>
-                            </div>
-                        </header>
-                        <p></p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Data Translation Pipeline</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Preview</a>
-                            </div>
-                        </header>
-                        <p></p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Network Package Sending Simulation</h6></div>
-                            <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="https://github.com/crystalxs/network-package-send-simulation">Github</a>
-                            </div>
-                        </header>
-                        <p></p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#C</span>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
         </div>
     <!-- End page content -->
         <footer class="contact">
@@ -385,15 +292,7 @@
 </body>
 </html>
 
-<!-- <div>
-            <ul> -->
-                <!-- <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">ABOUT</a> -->
-                <!-- <li><a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)">PROJECTS</a></li> -->
-            <!-- </ul>
-        </div> -->
-        <!-- <a class="w3-button w3-block w3-black w3-hide-large w3-hide-medium" onclick="plusDivs(1)">Take Tour <i class="fa fa-angle-right"></i></a> -->
-
-<!-- <script>
+<script>
     // Slideshow
     var slideIndex = 1;
     showDivs(slideIndex);
@@ -412,16 +311,4 @@
         }
         x[slideIndex-1].style.display = "block";  
     }
-</script> -->
-
-
-
-
-<!-- <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-  <img class="w3-image" src="/w3images/photographer.jpg" alt="Me" width="1500" height="600">
-  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
-    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">JANE DOE</h1>
-    <h5 class="w3-hide-large" style="white-space:nowrap">JANE DOE</h5>
-    <h3 class="w3-hide-medium w3-hide-small">PHOTOGRAPHER</h3>
-  </div> 
-</header> -->
+</script>

@@ -111,7 +111,30 @@ a:active,a:hover{outline-width:0}
     font-family: simsum;
     white-space:nowrap;
 }
-
+.about-div {
+    padding: 12px 24px!important;
+    border: 2px solid black;
+    text-align: justify;
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    font-family: Georgia;
+    background-color: #fdf5e6!important;
+    filter:grayscale(75%);
+    width: 60%;
+}
+.about {
+    display:inline-block;
+    width:auto;
+    padding:12px 24px!important;
+    font-size:16px!important;
+    font-family: Georgia;
+    font-weight: bold;
+    letter-spacing:4px;
+    animation:opac 1.5s;
+}
 
 /* navbar */
 .navbar {
@@ -128,7 +151,6 @@ a:active,a:hover{outline-width:0}
     z-index: 1;
     font-family: Georgia; 
 }
-
 
 /* contact */
 .contact-header {
