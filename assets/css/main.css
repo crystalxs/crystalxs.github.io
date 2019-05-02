@@ -132,7 +132,6 @@ header.background-img {
     filter:grayscale(75%);
     padding-left: 6vw;
     padding-right: 6vw;
-    padding-top: 6vw;
     overflow: hidden;
 }
 
@@ -141,19 +140,10 @@ header.background-img {
 }
 
 .subsession {
+    padding-top: 6vw;
     content: "";
     display: table;
     clear: both
-}
-
-.left-div {
-    float: left;
-    width: 47%;
-}
-
-.right-div {
-    float: right;
-    width: 47%;
 }
 
 .subsession-header {
@@ -177,10 +167,13 @@ header.background-img {
 }
 
 .project {
+    float: left;
     border: 2px solid black;
-    margin-top: 2em;
+    margin: 2em;
     text-align: justify;
-    width: 100%;
+    vertical-align: middle;
+    width: 29%;
+    height: 29em;
     padding: 1em 2em!important;
 }
 
