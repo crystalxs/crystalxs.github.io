@@ -36,12 +36,9 @@
 
         <!-- Navbar (placed at the bottom of the header image) -->
         <div class="navbar">
-            <!-- <a class="w3-bar-item w3-button" onclick="plusDivs(1)">HOME</a> -->
-            <a class="w3-bar-item w3-button" onclick="plusDivs(1)">ABOUT</a>
-            <a href="#fe-project" class="w3-bar-item w3-button">WEB PROJECTS</a>
+            <a href="showcases.html" class="w3-bar-item w3-button">WEB PROJECTS</a>
             <a href="#ds-project" class="w3-bar-item w3-button">MODELING PROJECTS</a>
             <a href="#de-project" class="w3-bar-item w3-button">PROGRAMMING PROJECTS</a>
-            <a href="showroom.html" class="w3-bar-item w3-button">SHOWCASES</a>
             <a href="https://crystalxs.gitbook.io/data-science-notes/" class="w3-bar-item w3-button">NOTES</a>
         </div>
     </header>
@@ -50,126 +47,6 @@
     <div class="content">
         <!-- Project Container -->
         <div class="session">
-            <div class="subsession" id="visual-project">
-                <div class="subsession-header" id="fe-project"><h5>Front-End / Visualization Projects</h5></div>
-                
-                <div class="left-div">
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>ConnectSF Visualization</h6></div>
-                            <div class="project-subheader">
-                                <a href="https://github.com/crystalxs/prospector" target="_blank">Github</a>
-                            </div>
-                        </header>
-                        <p>ConnectSF define a 50-year vision of San Francisco’s future that represents
-                           our priorities, goals, and aspirations as a city within the larger Bay Area.</p>
-                        <p>These visualizations will give the pulic and transportation system people full view
-                           of the city changing, opportunitis to interactive with and dig into with data. 
-                           Also they will guide plans for the City and its transportation system toward one
-                           collective goal.</p> 
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Vue.js</span>
-                            <span>#D3.js</span>
-                            <span>#Leaflet.js</span>
-                            <span>#Mapbox GL.js</span>
-                            <span>#PostgREST</span>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div id="container"></div>
-                        <header>
-                            <div class="project-header"><h6>Echarts Showcases</h6></div>
-                            <!-- <div class="project-subheader">
-                                <a href="https://github.com/crystalxs/small-data-visualization-samples" target="_blank">
-                                    Github</a> 
-                            </div> -->
-                        </header>
-                        <p>Echarts is a declarative Framework for rapid construction of web-based visualization.
-                           I used it for some interactive, dynamic data visualization projects:</p>
-                           <ul class="in-content">
-                                <li>Lianjia&trade; Competitor Map
-                                    <span class="project-subheader">
-                                        <a href="" target="_blank">
-                                            [Preview]</a>
-                                    </span>
-                                </li>
-                                <li>Lianjia&trade; City Market Map
-                                    <span class="project-subheader">
-                                        <a href="showcase/echarts/market_map/deal_map.html" target="_blank">
-                                            [Preview]</a>
-                                    </span>
-                                </li>
-                                <li>Lianjia&trade; Store Scale Demo
-                                    <span class="project-subheader">
-                                        <a href="showcase/echarts/store_increasing/store-increasing.html"
-                                            target="_blank">[Preview]</a>
-                                    </span>
-                                </li>
-                                <li>Network Traffic Anomly & Compromise Detection
-                                    <span class="project-subheader">
-                                        <a href="showcase/echarts/network-traffic.html" target="_blank">
-                                            [Preview]</a>
-                                    </span>
-                                </li>
-                           </ul>
-                        <p>Check code and data description in
-                            <a href="https://github.com/crystalxs/small-data-visualization-samples" target="_blank">
-                                Github</a>.</p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span><a href="https://ecomfe.github.io/echarts-doc/public/en/index.html" target="_blank">
-                                #Echarts.js</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-div">
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>NewsPhi</h6></div>
-                            <div class="project-subheader">
-                                <!-- <a href="" target="_blank">
-                                    Github</a>
-                                <span>/</span> -->
-                                <a href="http://ec2-35-167-124-232.us-west-2.compute.amazonaws.com:8080/">Preview</a>
-                            </div>
-                        </header>
-                        <p><strong>An aide for contextual news consumption.</strong> We developed a
-                            newsfeed website, which combine traditional newsfeed together with our
-                            dashboard with critical analysis tools.</p>
-                        <p>In this project, I am responsible for implementing data pipeline, back-end
-                            database setting up, and developing front-end website. We implement a automic
-                            data pipeline from our streaming data source to Amazon S3, to critical analysis
-                            models, and output to Amazon RDS for PostgreSQL, and then PostgREST api to connect
-                            RDS with front-end website. For the website development, we choose to use Vue.js
-                            for website interactive parts, and flask for user log in and behavior tracking system.
-                        </p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Vue.js</span>
-                            <span>#RDS</span>
-                            <span>#PostgreSQL</span>
-                            <span>#PostgREST</span>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <header>
-                            <div class="project-header"><h6>Search Engine Implementation</h6></div>
-                            <!-- <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                                <a href="">Preview</a>
-                            </div> -->
-                        </header>
-                        <p>I implement a basic search engine, including displaying search results in
-                           a browser window and being able to navigate to documents. I implemented 3
-                           different search mechanism, linear search, hashtables via python built-in
-                           dict, implemented hashtables.</p>
-                        <div class="w3-center" style="color: #999; font: 14px/1.5 Courier New">
-                            <span>#Python</span>
-                            <span>#Flask</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="subsession">
                 <div class="project-header" id="ds-project"><h5>Machine Learning Projects</h5></div>
                 
@@ -258,6 +135,7 @@
                 </div>
             </div>
         </div>
+        
     <!-- End page content -->
         <footer class="contact">
             <ul class="icons">
@@ -269,24 +147,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    // Slideshow
-    var slideIndex = 1;
-    showDivs(slideIndex);
-    
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
-    
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
-        for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
-        }
-        x[slideIndex-1].style.display = "block";  
-    }
-</script>
